@@ -14,6 +14,8 @@ public class GitPullRequest {
     private String title;
     private String state;
     private String body;
+    @JsonProperty("html_url")
+    private String htmlUrl;
     @JsonProperty("created_at")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private String createdAt;
@@ -22,4 +24,14 @@ public class GitPullRequest {
     private String updatedAt;
     private BranchType head;    // from branch
     private BranchType base;    // to Branch
+    private UserDetails user;
+    private String repo;
+
+    public String getRepo() {
+        return repo;
+    }
+
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
 }

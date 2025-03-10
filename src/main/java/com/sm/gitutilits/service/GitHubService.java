@@ -15,4 +15,6 @@ public interface GitHubService {
     BranchComparison compareBranches(String owner, String repo, String to, String from);
 
     List<GitBranch> listAllBranches(String owner, String repo);
+
+    List<List<GitPullRequest>> listAllPullRequests(String owner, String state);
 }

@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/github")
+@CrossOrigin(origins = "http://localhost:5173")
 public class GitHubController {
 
     private final GitHubService gitHubService;
@@ -31,6 +32,14 @@ public class GitHubController {
             @RequestParam(defaultValue = "open") String state
     ){
         return gitHubService.listPullRequests(owner, repo, state);
+    }
+
+    @GetMapping("/repos/{owner}/pulls")
+    public List<List<GitPullRequest>> getAllPullRequests(
+            @PathVariable String owner,
+            @RequestParam(defaultValue = "open") String state
+    ){
+        return gitHubService.listAllPullRequests(owner, state);
     }
 
     @GetMapping("/repos/{owner}/{repo}/compare/{to}/{from}")

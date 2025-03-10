@@ -15,4 +15,8 @@ public class GitRepository {
     private boolean isPrivate;
     @JsonProperty("html_url")
     private String htmlUrl;
+
+    public String getName() {
+        return name;
+    }
 }
